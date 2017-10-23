@@ -25,26 +25,12 @@
 {% block scripts %}
 <script>
 	$(function() {
-		var data = {
-			links: [
-				{
-					href: "https://plexpy.cjtkennedy.com",
-					name: "PlexPy",
-					order: 1
-				},
-				{
-					href: "https://plexweb.cjtkennedy.com",
-					name: "Plex",
-					class: "button button--primary button--rounded",
-					order: 2
-				}
-			]
-		};
-
-		data.links = _.sortBy(data.links, "order");
-		var navTemplateContent = $("#nav-template").html();
-		var navTemplate = Handlebars.compile(navTemplateContent);
-		$(".navigation").html(navTemplate(data));
+		$.get('/links', function (data){
+			data.links = _.sortBy(data.links, "order");
+			var navTemplateContent = $("#nav-template").html();
+			var navTemplate = Handlebars.compile(navTemplateContent);
+			$(".navigation").html(navTemplate(data));
+		});
 	});
 </script>
 {% endblock %}
