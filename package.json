@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Plex landing page",
   "main": "index.js",
+  "engines": {
+    "node": "8.x"
+  },
   "scripts": {
     "test": "echo \"These are not the tests you are looking for...\""
   },
