@@ -1,0 +1,168 @@
+@import 'variables';
+@import 'fonts';
+@import 'mixins';
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+@keyframes upDown {
+  0% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+body {
+  background-color: $base-bgcolor;
+  color: $base-color;
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height}
+      $base-font-family,
+    $base-font-family-fallback;
+  margin: 0;
+  min-height: 100%;
+}
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+h1 {
+  font-size: $h1-font-size;
+  font-weight: $h1-font-weight;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.grid {
+  @include clearfix();
+  margin: 0 auto;
+  max-width: $grid-max-width;
+  width: $grid-width;
+}
+.align {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  &__item {
+    &--start {
+      align-self: flex-start;
+    }
+
+    &--end {
+      align-self: flex-end;
+    }
+  }
+}
+.animation {
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+
+  &--infinite {
+    animation-iteration-count: infinite;
+  }
+
+  &--up-down {
+    animation-name: upDown;
+  }
+}
+.text {
+  &--center {
+    text-align: center;
+  }
+}
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+
+  &--primary {
+    background-color: $buttpn-primary-bgcolor;
+  }
+
+  &--rounded {
+    border-radius: 999px;
+  }
+
+  &--scroll {
+    bottom: 2rem;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+}
+.navigation {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: block;
+  }
+
+  &--inline {
+    > ul {
+      @include clearfix();
+
+      > li {
+        float: left;
+      }
+    }
+  }
+
+  &--main {
+    float: right;
+    text-transform: uppercase;
+
+    > ul {
+      margin: 0 (-1 * $navigation-main-padding-horizontal);
+
+      > li {
+        margin: 0 $navigation-main-padding-horizontal;
+      }
+    }
+
+    a {
+      padding-top: $navigation-main-padding-vertical;
+      padding-bottom: $navigation-main-padding-vertical;
+    }
+  }
+}
+.site {
+  &__header {
+    left: 0;
+    padding: $header-padding-vertical 0;
+    position: fixed;
+    top: 0;
+    transform: translateZ(0);
+    width: 100%;
+    z-index: $header-z-index;
+  }
+  &__logo {
+    float: left;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  &__section {
+    min-height: 100vh;
+    position: relative;
+    
+    .main-img{
+      width: 180px;
+    }
+  }
+}

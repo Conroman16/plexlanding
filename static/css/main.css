@@ -1,0 +1,165 @@
+@import 'https://fonts.googleapis.com/css?family=Satisfy|Open+Sans|Lato';
+@keyframes upDown {
+  0% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+body {
+  background-color: #1F1F1F;
+  color: #fff;
+  font: 300 1rem/1.5 Lato, sans-serif;
+  margin: 0;
+  min-height: 100%;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.grid {
+  margin: 0 auto;
+  max-width: 74rem;
+  width: 90%;
+}
+
+.grid:before, .grid:after {
+  content: " ";
+  display: table;
+}
+
+.grid:after {
+  clear: both;
+}
+
+.align {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.align__item--start {
+  align-self: flex-start;
+}
+
+.align__item--end {
+  align-self: flex-end;
+}
+
+.animation {
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+.animation--infinite {
+  animation-iteration-count: infinite;
+}
+
+.animation--up-down {
+  animation-name: upDown;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+.button--primary {
+  background-color: #cc7b19;
+}
+
+.button--rounded {
+  border-radius: 999px;
+}
+
+.button--scroll {
+  bottom: 2rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  display: block;
+}
+
+.navigation--inline > ul:before, .navigation--inline > ul:after {
+  content: " ";
+  display: table;
+}
+
+.navigation--inline > ul:after {
+  clear: both;
+}
+
+.navigation--inline > ul > li {
+  float: left;
+}
+
+.navigation--main {
+  float: right;
+  text-transform: uppercase;
+}
+
+.navigation--main > ul {
+  margin: 0 -2rem;
+}
+
+.navigation--main > ul > li {
+  margin: 0 2rem;
+}
+
+.navigation--main a {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.site__header {
+  left: 0;
+  padding: 3rem 0;
+  position: fixed;
+  top: 0;
+  transform: translateZ(0);
+  width: 100%;
+  z-index: 1;
+}
+
+.site__logo {
+  float: left;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.site__section {
+  min-height: 100vh;
+  position: relative;
+}
+
+.site__section .main-img {
+  width: 180px;
+}
